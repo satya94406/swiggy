@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/swiggy/static/css/main.2d83c2c4.css",
-    "main.js": "/swiggy/static/js/main.522f79ea.js",
+    "main.js": "/swiggy/static/js/main.9d9bed32.js",
     "static/js/48.bce76f8b.chunk.js": "/swiggy/static/js/48.bce76f8b.chunk.js",
     "static/js/787.673acbc9.chunk.js": "/swiggy/static/js/787.673acbc9.chunk.js",
     "index.html": "/swiggy/index.html",
     "main.2d83c2c4.css.map": "/swiggy/static/css/main.2d83c2c4.css.map",
-    "main.522f79ea.js.map": "/swiggy/static/js/main.522f79ea.js.map",
+    "main.9d9bed32.js.map": "/swiggy/static/js/main.9d9bed32.js.map",
     "48.bce76f8b.chunk.js.map": "/swiggy/static/js/48.bce76f8b.chunk.js.map",
     "787.673acbc9.chunk.js.map": "/swiggy/static/js/787.673acbc9.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.2d83c2c4.css",
-    "static/js/main.522f79ea.js"
+    "static/js/main.9d9bed32.js"
   ]
 }
