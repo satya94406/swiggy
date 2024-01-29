@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import useOnlineStatus from "../Utils/useOnlineStatus";
 import Usercontxt from "../Utils/Usercontxt";
 import { useContext } from "react";
+import restaurants from "../Utils/mockData";
 
 const Body=()=>{
    
@@ -20,13 +21,15 @@ const Body=()=>{
   },[]);
 
   const fetchData=async()=>{
-      const data = await fetch(
-     "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.6691565&lng=77.45375779999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-     )
-     const json = await data.json();
-      console.log(json);
-      setList(json.data.cards[1].card.card.gridElements.infoWithStyle.restaurants);
-      setFilteredRestaurant(json.data.cards[1].card.card.gridElements.infoWithStyle.restaurants);
+     // const data = await fetch(
+    // "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.6691565&lng=77.45375779999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+     //)
+     //const json = await data.json();
+     // console.log(json);
+     // setList(json.data.cards[1].card.card.gridElements.infoWithStyle.restaurants);
+     setList(restaurants);
+      //setFilteredRestaurant(json.data.cards[1].card.card.gridElements.infoWithStyle.restaurants);
+      setFilteredRestaurant(restaurants);
    }
 
    const OnlineStatus =useOnlineStatus();
