@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { LOGO_URL } from "../Utils/constants";
-import { Link} from "react-router-dom";
+import { Link, Outlet} from "react-router-dom";
 import useOnlineStatus from "../Utils/useOnlineStatus";
 //import Usercontxt from "../Utils/Usercontxt";
 //import { useContext } from "react";
@@ -25,11 +25,11 @@ const Header=()=>{
   //const {loggedIn} = useContext(Usercontxt) ;
 
     return(
+      <>
       <div className="flex justify-between bg-pink-200 sm:bg-green-300 ">
           <div>
             <img className="w-20" alt="sat" src={LOGO_URL}/>
           </div>
-
           <div className="flex items-center">
             <ul className="flex p-2 m-1 " >
               <li className="px-2.5"> Online Status {online?"🟢":"🔴"} </li>
@@ -43,8 +43,9 @@ const Header=()=>{
                 }> {loginBtn}  </button>
             </ul>
           </div>
-
       </div>
+      <Outlet/>
+      </>
     )
 }
 

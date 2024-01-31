@@ -26,14 +26,15 @@ const AppLayout = () => {
     <Provider store={AppStore}>
       <Usercontxt.Provider value={{ loggedIn: UserName, setUserName }}>
         <div>
-          <Header />
           <Routes>
-            <Route path="/" element={<Body />} />
+            <Route path="/" element={ <Header />}>
+            <Route  index element={<Body />} />
             <Route path="/Grocery" element={<Suspense fallback={<h1>Loading...</h1>}><Grocer /></Suspense>} />
             <Route path="/About" element={<About />} />
             <Route path="/Contact" element={<Contact />} />
             <Route path="/restrauMenu/:resId" element={<RestrauantMenu />} />
             <Route path="/cart" element={<Cart />} />
+            </Route>
           </Routes>
         </div>
       </Usercontxt.Provider>
@@ -51,7 +52,3 @@ const App = () => {
 
 export default App;
 
-
-{/*
-  
-*/}
