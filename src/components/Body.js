@@ -17,7 +17,7 @@ const Body=()=>{
    console.log(loggedIn);
    
    useEffect(()=>{
-   // fetchData() ;
+    fetchData() ;
   },[]);
 
   const fetchData=async()=>{
