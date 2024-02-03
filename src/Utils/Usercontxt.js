@@ -1,7 +1,7 @@
 import { createContext } from "react";
 
 const Usercontxt = createContext({
-    loggedIn:"de " 
+    loggedIn:"de" 
 })
 
 export default Usercontxt ;

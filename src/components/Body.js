@@ -6,6 +6,7 @@ import useOnlineStatus from "../Utils/useOnlineStatus";
 import Usercontxt from "../Utils/Usercontxt";
 import { useContext } from "react";
 
+
 const Body=()=>{
    
    const[searchText,setSearchText] =useState("");
@@ -25,15 +26,14 @@ const Body=()=>{
      )
      const json = await data.json();
       console.log(json);
-      setList(json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants);
-      setFilteredRestaurant(json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants);
+      setList(json.data.cards[1].card.card.gridElements.infoWithStyle.restaurants);
+      setFilteredRestaurant(json.data.cards[1].card.card.gridElements.infoWithStyle.restaurants);
    }
 
    const OnlineStatus =useOnlineStatus();
    if(OnlineStatus===false){
       return(<h2>you are offline . Please check your internet .!!</h2>)
    }   
- console.log(List);
     
 
     return List.length == 0 ?<Shimmer/>:
@@ -51,19 +51,17 @@ const Body=()=>{
                   const filter = List.filter((res)=>
                     res.info.name.toLowerCase().includes(searchText.toLowerCase())
                   );
-                  console.log(filter);
                   setFilteredRestaurant(filter);
-                console.log(filteredRestaurant);
              }}>Search</button>
              
              <button className=" bg-sky-500/50 ...  rounded-md px-1" onClick={()=>{
                setFilteredRestaurant( List.filter((e)=>e.info.avgRating>4.0)
-               );                console.log(filteredRestaurant);
+               );                
 
              }}>Top Rated restaurant</button>
 
              <div className=" flex">
-                <label className="bghttps://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_includes bg-rose-500 rounded-lg mx-1 px-1">UserName</label>
+                <label className=" bg-rose-500 rounded-lg mx-1 px-1">UserName</label>
                 <input className="border border-l-blacksd rounded-lg px-1" 
                 value={loggedIn}
                 onChange={(e)=>setUserName(e.target.value)} />

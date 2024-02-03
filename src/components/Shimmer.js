@@ -1,22 +1,25 @@
 
+
 const Shimmer=()=>{
     return(
-      <div className="shimmer-container">
-         <div className="shimmer-card"></div>
-         <div className="shimmer-card"></div>
-         <div className="shimmer-card"></div>
-         <div className="shimmer-card"></div>
-         <div className="shimmer-card"></div>
-         <div className="shimmer-card"></div>
-         <div className="shimmer-card"></div>
-         <div className="shimmer-card"></div>
-         <div className="shimmer-card"></div>
-         <div className="shimmer-card"></div>
-         <div className="shimmer-card"></div>
-         <div className="shimmer-card"></div>
-         <div className="shimmer-card"></div>
-         <div className="shimmer-card"></div>
-         <div className="shimmer-card"></div>
+      <div className="flex flex-wrap">
+         <div className="m-4 w-[120px] h-90  bg-pink-50 rounded-lg "></div>
+         <div className="m-4 w-[120px] h-90  bg-pink-50 rounded-lg "></div>
+         <div className="m-4 w-[120px] h-90  bg-pink-50 rounded-lg "></div>
+         <div className="m-4 w-[120px] h-90  bg-pink-50 rounded-lg "></div>
+         <div className="m-4 w-[120px] h-90  bg-pink-50 rounded-lg "></div>
+         <div className="m-4 w-[120px] h-90  bg-pink-50 rounded-lg "></div>
+         <div className="m-4 w-[120px] h-90  bg-pink-50 rounded-lg "></div>
+         <div className="m-4 w-[120px] h-90  bg-pink-50 rounded-lg "></div>
+         <div className="m-4 w-[120px] h-90  bg-pink-50 rounded-lg "></div>
+         <div className="m-4 w-[120px] h-90  bg-pink-50 rounded-lg "></div>
+         <div className="m-4 w-[120px] h-90  bg-pink-50 rounded-lg "></div>
+         <div className="m-4 w-[120px] h-90  bg-pink-50 rounded-lg "></div>
+         <div className="m-4 w-[120px] h-90  bg-pink-50 rounded-lg "></div>
+         <div className="m-4 w-[120px] h-90  bg-pink-50 rounded-lg "></div>
+         <div className="m-4 w-[120px] h-90  bg-pink-50 rounded-lg "></div>
+         <div className="m-4 w-[120px] h-90  bg-pink-50 rounded-lg "></div>
+         <div className="m-4 w-[120px] h-90  bg-pink-50 rounded-lg "></div>
 
       </div>
     )

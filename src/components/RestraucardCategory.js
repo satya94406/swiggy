@@ -1,7 +1,7 @@
 import React from "react";
 //import { useState } from "react";
 import Itemlist from "./Itemlist";
-const RestraucardCategory=({data,show,setShowIndex,dumm})=>{
+const RestraucardCategory=({data,show,setShowIndex})=>{
 console.log(setShowIndex);
 console.log(show);
 console.log(data);

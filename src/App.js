@@ -28,7 +28,7 @@ const AppLayout = () => {
         <div>
           <Routes>
             <Route path="/" element={ <Header />}>
-            <Route  index element={<Body />} />
+            <Route  path="/swiggy" element={<Body />} />
             <Route path="/Grocery" element={<Suspense fallback={<h1>Loading...</h1>}><Grocer /></Suspense>} />
             <Route path="/About" element={<About />} />
             <Route path="/Contact" element={<Contact />} />

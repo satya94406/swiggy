@@ -1,10 +1,6 @@
-import { useContext } from "react";
 import { CDN_URL } from "../Utils/constants";
-import Usercontxt from "../Utils/Usercontxt";
 
 const Restraucard=(props)=>{
-     console.log(props);
-    const {loggedIn}=useContext(Usercontxt);
  
     const {
         cloudinaryImageId,
