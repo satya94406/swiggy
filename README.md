@@ -14,3 +14,5 @@ This is a **Swiggy Clone**, a food ordering web application inspired by Swiggy. 
 - **Frontend:** React.js, Tailwind CSS, Redux (for state management)  
 - **Tools:** Git, GitHub  
 
+## 📌 Live Demo  
+🔗 [Live Demo](#) *(https://satya94406.github.io/swiggy/)*  
