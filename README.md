@@ -12,6 +12,5 @@ This is a **Swiggy Clone**, a food ordering web application inspired by Swiggy. 
 
 ## 🖥️ Tech Stack  
 - **Frontend:** React.js, Tailwind CSS, Redux (for state management)  
-- **Backend:** Firebase (for authentication and database)  
 - **Tools:** Git, GitHub  
 
