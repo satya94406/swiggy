@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkswiggy=self.webpackChunkswiggy||[]).push([[48],{48:(e,s,a)=>{a.r(s),a.d(s,{default:()=>c});var t=a(184);const c=()=>(0,t.jsx)(t.Fragment,{children:(0,t.jsx)("h1",{children:"this page for Grocery Item , such as aata, rice, toast etc."})})}}]);
-//# sourceMappingURL=48.bce76f8b.chunk.js.map

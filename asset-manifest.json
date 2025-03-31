@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/swiggy/static/css/main.2d83c2c4.css",
-    "main.js": "/swiggy/static/js/main.0367d2df.js",
-    "static/js/48.bce76f8b.chunk.js": "/swiggy/static/js/48.bce76f8b.chunk.js",
+    "main.css": "/swiggy/static/css/main.d3a9b187.css",
+    "main.js": "/swiggy/static/js/main.7cd653ba.js",
     "static/js/787.673acbc9.chunk.js": "/swiggy/static/js/787.673acbc9.chunk.js",
+    "static/media/bootstrap-icons.woff?": "/swiggy/static/media/bootstrap-icons.39795c0b4513de014cf8.woff",
+    "static/media/bootstrap-icons.woff2?": "/swiggy/static/media/bootstrap-icons.b7bcc075b395c14ce8c2.woff2",
     "index.html": "/swiggy/index.html",
-    "main.2d83c2c4.css.map": "/swiggy/static/css/main.2d83c2c4.css.map",
-    "main.0367d2df.js.map": "/swiggy/static/js/main.0367d2df.js.map",
-    "48.bce76f8b.chunk.js.map": "/swiggy/static/js/48.bce76f8b.chunk.js.map",
+    "main.d3a9b187.css.map": "/swiggy/static/css/main.d3a9b187.css.map",
+    "main.7cd653ba.js.map": "/swiggy/static/js/main.7cd653ba.js.map",
     "787.673acbc9.chunk.js.map": "/swiggy/static/js/787.673acbc9.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.2d83c2c4.css",
-    "static/js/main.0367d2df.js"
+    "static/css/main.d3a9b187.css",
+    "static/js/main.7cd653ba.js"
   ]
 }
