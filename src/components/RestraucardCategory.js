@@ -1,25 +1,20 @@
-import React from "react";
-//import { useState } from "react";
 import Itemlist from "./Itemlist";
+
 const RestraucardCategory=({data,show,setShowIndex})=>{
-console.log(setShowIndex);
-console.log(show);
-console.log(data);
+ const handleClick=()=>{
+     setShowIndex()
+ };
 
-const handleClick=()=>{
-    setShowIndex()
-};
-
-    return(
- <div className="bg-gray-60 w-6/12 shadow-xl mx-auto my-2">
-  <div className="flex cursor-pointer justify-between" onClick={handleClick}>
-        <div className=" font-bold text-stone-950">
-            {data.title}({data.itemCards.length})
-        </div>
-        <div>
-          <p>↓</p>
-        </div>
-  </div>
+ return(
+ <div className="bg-gray-60 m-4 w-full lg:w-4/5 shadow-xl mx-auto my-2">
+   <div className="flex cursor-pointer justify-between" onClick={handleClick}>
+         <div className=" font-bold text-stone-950 text-xl m-4">
+             {data.title}({data.itemCards.length})
+         </div>
+         <div>
+           <p className="m-4 text-3xl lg:text-4xl hover:text-sky-700"><i className="bi bi-arrow-down-circle-fill "></i></p>
+         </div>
+   </div>
         {show && <Itemlist items={data.itemCards} />}
  </div>
     )

@@ -12,7 +12,7 @@ const Cart=()=>{
 
     return(
         <>
-          <div className="text-center text font-bold w-6/12 my-3 m-auto"> 
+          <div className="text-center text font-bold  my-3 m-auto w-full lg:w-4/5 lg:mx-auto"> 
            <div className="flex justify-between m-auto">
               <div className="font-extrabold stroke-zinc-200 bg-red-500 px-2  rounded-lg ">
                  Cart

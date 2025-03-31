@@ -1,23 +1,35 @@
 import Restraucard from "./Restraucard";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../Utils/useOnlineStatus";
 import Usercontxt from "../Utils/Usercontxt";
 import { useContext } from "react";
-
+import { CiSearch } from "react-icons/ci";
+import { useDispatch, useSelector } from "react-redux";
+import { setSearchText } from "../Utils/searchSlice";
+import Footer from "./Footer";
+import { HiArrowCircleRight } from "react-icons/hi";
+import { HiArrowCircleLeft } from "react-icons/hi";
 
 const Body=()=>{
    
-   const[searchText,setSearchText] =useState("");
-   const[filteredRestaurant , setFilteredRestaurant]=useState([]);
-   const[List,setList]=useState([]);  
+  const dispatch = useDispatch();
+  const searchText = useSelector((store) => store.search.searchText);   const[filteredRestaurant , setFilteredRestaurant]=useState([]);
+  const[List,setList]=useState([]);  
+  const scrollbarRef = useRef(null);
 
-   const {loggedIn,setUserName}=useContext(Usercontxt);
-   console.log(loggedIn);
-   
-   useEffect(()=>{
-    fetchData() ;
+  const scrollLeft = () => {
+    scrollbarRef.current.scrollBy({ left: -200, behavior: "smooth" });
+  };
+
+  const scrollRight = () => {
+    scrollbarRef.current.scrollBy({ left: 200, behavior: "smooth" });
+  };
+
+
+  useEffect(()=>{
+   fetchData() ;
   },[]);
 
   const fetchData=async()=>{
@@ -30,6 +42,13 @@ const Body=()=>{
       setFilteredRestaurant(json.data.cards[1].card.card.gridElements.infoWithStyle.restaurants);
    }
 
+   useEffect(() => {
+    const filtered = List.filter((res) =>
+      res.info.name.toLowerCase().includes(searchText.toLowerCase())
+    );
+    setFilteredRestaurant(filtered);
+  }, [searchText, List]);
+
    const OnlineStatus =useOnlineStatus();
    if(OnlineStatus===false){
       return(<h2>you are offline . Please check your internet .!!</h2>)
@@ -37,44 +56,57 @@ const Body=()=>{
     
 
     return List.length == 0 ?<Shimmer/>:
-    (
-        <div>
-          <div className="m-1 p-2">
-             <input  type="text"
-               className=" border to-blue-700 px-1 rounded-lg"
-               value={searchText}
-               onChange={(e)=>{setSearchText(e.target.value)}} 
-                />
-                                                 
-             <button className="bg bg-red-800 px-1 m-1 rounded-md"
-             onClick={()=>{ 
-                  const filter = List.filter((res)=>
-                    res.info.name.toLowerCase().includes(searchText.toLowerCase())
-                  );
-                  setFilteredRestaurant(filter);
-             }}>Search</button>
-             
-             <button className=" bg-sky-500/50 ...  rounded-md px-1" onClick={()=>{
+    (  
+     <div>
+        <div className="w-full lg:w-4/5 lg:mx-auto">
+          <div>
+             <button className=" bg-sky-500/50 m-2 py-2 px-4  rounded-md" onClick={()=>{
                setFilteredRestaurant( List.filter((e)=>e.info.avgRating>4.0)
                );                
 
              }}>Top Rated restaurant</button>
-
-             <div className=" flex">
-                <label className=" bg-rose-500 rounded-lg mx-1 px-1">UserName</label>
-                <input className="border border-l-blacksd rounded-lg px-1" 
-                value={loggedIn}
-                onChange={(e)=>setUserName(e.target.value)} />
-             </div>
-          </div>
-
-            <div  className="flex flex-wrap">           
-              { 
-                filteredRestaurant.map((resCard)=><Link key={resCard.info.id} to={"/restrauMenu/"+resCard.info.id}><Restraucard  resData={resCard}/></Link>)
-              }
+            </div>
+            <div className="relative">
+              <div className="object-cover pr-7">
+                <img className="w-full m-4" src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/portal/m/seo/Food_collectionbanner.png"/>
+              </div>
+              <div className="absolute bottom-6 text-white ml-10 font-extrabold text-xl lg:text-6xl">
+                 <h1>Order Food From MSIT College❤️</h1>
+              </div>
             </div>
 
+            <div className="relative">
+              <div  className="flex justify-between">
+                <h1 className="font-extrabold text-xl lg:text-3xl ml-6 mt-3 ">Satya, what's on your mind?</h1> 
+                <div className="flex absolute right-0 mr-4">
+                  <HiArrowCircleLeft  className="w-12 lg:w-16 h-12 lg:h-16 cursor-pointer" onClick={scrollLeft}/>
+                  <HiArrowCircleRight className="w-12 lg:w-16 h-12 lg:h-16 cursor-pointer" onClick={scrollRight}/>
+                </div>
+              </div>   
+              <div className="flex mx-4 mb-2 pb-5 overflow-x-scroll overflow-y-hidden scrollbar-hide" ref={scrollbarRef}>
+                 <div className="w-28 lg:w-52 h-28 lg:h-52 cursor-pointer shrink-0"><img src='https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/MERCHANDISING_BANNERS/IMAGES/MERCH/2025/1/24/05a939eb-fd4e-4308-b989-d1c54f4421b3_northindian1.png'/></div>
+                 <div className="w-28 lg:w-52 h-28 lg:h-52 cursor-pointer shrink-0"><img src='https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/MERCHANDISING_BANNERS/IMAGES/MERCH/2024/7/2/6ef07bda-b707-48ea-9b14-2594071593d1_Biryani.png'/></div>
+                 <div className="w-28 lg:w-52 h-28 lg:h-52 cursor-pointer shrink-0"><img src='https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/MERCHANDISING_BANNERS/IMAGES/MERCH/2025/1/24/05a939eb-fd4e-4308-b989-d1c54f4421b3_northindian1.png'/></div>
+                 <div className="w-28 lg:w-52 h-28 lg:h-52 cursor-pointer shrink-0"><img src='https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/MERCHANDISING_BANNERS/IMAGES/MERCH/2024/7/2/6ef07bda-b707-48ea-9b14-2594071593d1_Biryani.png'/></div>
+                 <div className="w-28 lg:w-52 h-28 lg:h-52 cursor-pointer shrink-0"><img src='https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/MERCHANDISING_BANNERS/IMAGES/MERCH/2025/1/24/05a939eb-fd4e-4308-b989-d1c54f4421b3_northindian1.png'/></div>
+                 <div className="w-28 lg:w-52 h-28 lg:h-52 cursor-pointer shrink-0"><img src='https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/MERCHANDISING_BANNERS/IMAGES/MERCH/2025/1/24/05a939eb-fd4e-4308-b989-d1c54f4421b3_northindian1.png'/></div>
+                 <div className="w-28 lg:w-52 h-28 lg:h-52 cursor-pointer shrink-0"><img src='https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/MERCHANDISING_BANNERS/IMAGES/MERCH/2024/7/2/6ef07bda-b707-48ea-9b14-2594071593d1_Biryani.png'/></div>
+                 <div className="w-28 lg:w-52 h-28 lg:h-52 cursor-pointer shrink-0"><img src='https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/MERCHANDISING_BANNERS/IMAGES/MERCH/2025/1/24/05a939eb-fd4e-4308-b989-d1c54f4421b3_northindian1.png'/></div>
+                 <div className="w-28 lg:w-52 h-28 lg:h-52 cursor-pointer shrink-0"><img src='https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/MERCHANDISING_BANNERS/IMAGES/MERCH/2025/1/24/05a939eb-fd4e-4308-b989-d1c54f4421b3_northindian1.png'/></div>
+                 <div className="w-28 lg:w-52 h-28 lg:h-52 cursor-pointer shrink-0"><img src='https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/MERCHANDISING_BANNERS/IMAGES/MERCH/2024/7/2/6ef07bda-b707-48ea-9b14-2594071593d1_Biryani.png'/></div>
+                 <div className="w-28 lg:w-52 h-28 lg:h-52 cursor-pointer shrink-0"><img src='https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/MERCHANDISING_BANNERS/IMAGES/MERCH/2025/1/24/05a939eb-fd4e-4308-b989-d1c54f4421b3_northindian1.png'/></div>
+              </div>
+            </div>
+
+            <div  className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 ">           
+              { 
+                filteredRestaurant.map((resCard)=><Link key={resCard.info.id} to={"/restrauMenu/"+resCard.info.id}><Restraucard  resData={resCard} /></Link>)
+              }
+            </div>
         </div>
+          <Footer/>
+       </div>
+
     )
 }
 
